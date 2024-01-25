@@ -34,6 +34,7 @@
     <Property Name="typeID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Autopark" Relationship="Self.AutoModel" FromRole="ModelTable" ToRole="Autopark" />
     <NavigationProperty Name="TypeTable" Relationship="Self.ModelType" FromRole="ModelTable" ToRole="TypeTable" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Options">
     <Key>

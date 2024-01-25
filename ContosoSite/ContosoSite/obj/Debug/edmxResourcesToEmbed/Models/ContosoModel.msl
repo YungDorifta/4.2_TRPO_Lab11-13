@@ -26,6 +26,7 @@
     <EntitySetMapping Name="ModelTable">
       <EntityTypeMapping TypeName="AutoRentDatabaseModel.ModelTable">
         <MappingFragment StoreEntitySet="ModelTable">
+          <ScalarProperty Name="photo" ColumnName="photo" />
           <ScalarProperty Name="modelID" ColumnName="modelID" />
           <ScalarProperty Name="brand" ColumnName="brand" />
           <ScalarProperty Name="model" ColumnName="model" />

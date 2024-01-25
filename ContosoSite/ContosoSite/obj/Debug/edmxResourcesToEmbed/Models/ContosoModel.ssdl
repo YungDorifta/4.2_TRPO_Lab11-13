@@ -28,6 +28,7 @@
     <Property Name="brand" Type="nchar" MaxLength="15" Nullable="false" />
     <Property Name="model" Type="nchar" MaxLength="15" Nullable="false" />
     <Property Name="typeID" Type="int" Nullable="false" />
+    <Property Name="photo" Type="image" />
   </EntityType>
   <EntityType Name="Options">
     <Key>

@@ -4,13 +4,12 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Новая модель авто</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(Html.BeginForm("Create", "Buses", null, FormMethod.Post, new { enctype = "multipart/form-data" })))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ModelTable</h4>
         <hr />
@@ -36,6 +35,13 @@
             <div class="col-md-10">
                 @Html.DropDownList("typeID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.typeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="upload" value="Обзор..." />
             </div>
         </div>
 

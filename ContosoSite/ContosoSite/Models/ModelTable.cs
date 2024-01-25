@@ -24,6 +24,7 @@ namespace ContosoSite.Models
         public string brand { get; set; }
         public string model { get; set; }
         public int typeID { get; set; }
+        public byte[] photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Autopark> Autopark { get; set; }

@@ -33,6 +33,7 @@
           <Property Name="brand" Type="nchar" MaxLength="15" Nullable="false" />
           <Property Name="model" Type="nchar" MaxLength="15" Nullable="false" />
           <Property Name="typeID" Type="int" Nullable="false" />
+          <Property Name="photo" Type="image" />
         </EntityType>
         <EntityType Name="Options">
           <Key>
@@ -242,6 +243,7 @@
           <Property Name="typeID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Autopark" Relationship="Self.AutoModel" FromRole="ModelTable" ToRole="Autopark" />
           <NavigationProperty Name="TypeTable" Relationship="Self.ModelType" FromRole="ModelTable" ToRole="TypeTable" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Options">
           <Key>
@@ -452,6 +454,7 @@
           <EntitySetMapping Name="ModelTable">
             <EntityTypeMapping TypeName="AutoRentDatabaseModel.ModelTable">
               <MappingFragment StoreEntitySet="ModelTable">
+                <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="modelID" ColumnName="modelID" />
                 <ScalarProperty Name="brand" ColumnName="brand" />
                 <ScalarProperty Name="model" ColumnName="model" />

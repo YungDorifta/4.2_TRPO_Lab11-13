@@ -15,7 +15,7 @@ namespace ContosoSite.Controllers
         private AutoRentDatabaseEntitiesActual db = new AutoRentDatabaseEntitiesActual();
 
         // GET: ModelTables
-        public ActionResult Index(string searchString)
+        public ActionResult Index()
         {
             var modelTable = db.ModelTable.Include(m => m.TypeTable);
             return View(modelTable.ToList());
@@ -48,10 +48,18 @@ namespace ContosoSite.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "modelID,brand,model,typeID")] ModelTable modelTable)
+        public ActionResult Create([Bind(Include = "modelID,brand,model,typeID,photo")] ModelTable modelTable, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        modelTable.photo = reader.ReadBytes(upload.ContentLength);
+                    }
+                }
+
                 db.ModelTable.Add(modelTable);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,7 +90,7 @@ namespace ContosoSite.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "modelID,brand,model,typeID")] ModelTable modelTable)
+        public ActionResult Edit([Bind(Include = "modelID,brand,model,typeID,photo")] ModelTable modelTable)
         {
             if (ModelState.IsValid)
             {
