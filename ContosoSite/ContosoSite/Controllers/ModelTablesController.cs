@@ -90,20 +90,39 @@ namespace ContosoSite.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "modelID,brand,model,typeID,photo")] ModelTable modelTable)
+        public ActionResult Edit([Bind(Include = "modelID,brand,model,typeID,photo")] ModelTable modelTable, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(modelTable).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(modelTable).State = EntityState.Modified;
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            modelTable.photo = reader.ReadBytes(upload.ContentLength);
+                        }
+                        db.SaveChanges();
+                    }
+
+                    else
+                    {
+                        db.Entry(modelTable).Property(m => m.photo).IsModified = false;
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction("Index");
+                }
+                return View(modelTable);
             }
-            ViewBag.typeID = new SelectList(db.TypeTable, "typeID", "body", modelTable.typeID);
+            catch (Exception e){}
             return View(modelTable);
         }
+        
 
-        // GET: ModelTables/Delete/5
-        public ActionResult Delete(int? id)
+    // GET: ModelTables/Delete/5
+    public ActionResult Delete(int? id)
         {
             if (id == null)
             {
