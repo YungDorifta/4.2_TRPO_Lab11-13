@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AutoRentDatabaseModelContainer" CdmEntityContainer="AutoRentDatabaseEntitiesActual">
+    <EntitySetMapping Name="Autopark">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.Autopark">
+        <MappingFragment StoreEntitySet="Autopark">
+          <ScalarProperty Name="autoID" ColumnName="autoID" />
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="licensePlate" ColumnName="licensePlate" />
+          <ScalarProperty Name="mileage" ColumnName="mileage" />
+          <ScalarProperty Name="pricePerHour" ColumnName="pricePerHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fixes">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.Fixes">
+        <MappingFragment StoreEntitySet="Fixes">
+          <ScalarProperty Name="fixID" ColumnName="fixID" />
+          <ScalarProperty Name="autoID" ColumnName="autoID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Appeared" ColumnName="Appeared" />
+          <ScalarProperty Name="Fixed" ColumnName="Fixed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelTable">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.ModelTable">
+        <MappingFragment StoreEntitySet="ModelTable">
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Options">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.Options">
+        <MappingFragment StoreEntitySet="Options">
+          <ScalarProperty Name="optionsID" ColumnName="optionsID" />
+          <ScalarProperty Name="trailer" ColumnName="trailer" />
+          <ScalarProperty Name="bicycleRack" ColumnName="bicycleRack" />
+          <ScalarProperty Name="babySeat" ColumnName="babySeat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rents">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.Rents">
+        <MappingFragment StoreEntitySet="Rents">
+          <ScalarProperty Name="rentID" ColumnName="rentID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="autoID" ColumnName="autoID" />
+          <ScalarProperty Name="optionsID" ColumnName="optionsID" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="insuranse" ColumnName="insuranse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TechMessages">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.TechMessages">
+        <MappingFragment StoreEntitySet="TechMessages">
+          <ScalarProperty Name="rentID" ColumnName="rentID" />
+          <ScalarProperty Name="start" ColumnName="start" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeTable">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.TypeTable">
+        <MappingFragment StoreEntitySet="TypeTable">
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="group" ColumnName="group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AutoRentDatabaseModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

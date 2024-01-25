@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ContosoSite.Models.ModelTable>
+
+@{
+    ViewBag.Title = "Models";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeTable.body)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeTable.body)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.modelID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.modelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.modelID })
+        </td>
+    </tr>
+}
+
+</table>

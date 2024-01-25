@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ContosoSite.Models.Rents>
+
+@{
+    ViewBag.Title = "Rents";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<br>
+<p>
+    Find by brand: @Html.TextBox("searchString")
+    <input type="submit" value="Search" />
+</p>
+<br>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("startTime", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.insuranse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autopark.licensePlate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Options.trailer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechMessages.description)
+        </th>
+        <th>
+            @Html.ActionLink("FIO", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.startTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.insuranse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autopark.licensePlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Options.trailer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TechMessages.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.FIO)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.rentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.rentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.rentID })
+            </td>
+        </tr>
+    }
+
+</table>

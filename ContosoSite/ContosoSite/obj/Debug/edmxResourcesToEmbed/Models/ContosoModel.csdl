@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AutoRentDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Autopark">
+    <Key>
+      <PropertyRef Name="autoID" />
+    </Key>
+    <Property Name="autoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="modelID" Type="Int32" Nullable="false" />
+    <Property Name="licensePlate" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="mileage" Type="Int32" Nullable="false" />
+    <Property Name="pricePerHour" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Fixes" Relationship="Self.AutoFix" FromRole="Autopark" ToRole="Fixes" />
+    <NavigationProperty Name="ModelTable" Relationship="Self.AutoModel" FromRole="Autopark" ToRole="ModelTable" />
+    <NavigationProperty Name="Rents" Relationship="Self.AutoRent" FromRole="Autopark" ToRole="Rents" />
+  </EntityType>
+  <EntityType Name="Fixes">
+    <Key>
+      <PropertyRef Name="fixID" />
+    </Key>
+    <Property Name="fixID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="autoID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Appeared" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fixed" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Autopark" Relationship="Self.AutoFix" FromRole="Fixes" ToRole="Autopark" />
+  </EntityType>
+  <EntityType Name="ModelTable">
+    <Key>
+      <PropertyRef Name="modelID" />
+    </Key>
+    <Property Name="modelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brand" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="model" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="typeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Autopark" Relationship="Self.AutoModel" FromRole="ModelTable" ToRole="Autopark" />
+    <NavigationProperty Name="TypeTable" Relationship="Self.ModelType" FromRole="ModelTable" ToRole="TypeTable" />
+  </EntityType>
+  <EntityType Name="Options">
+    <Key>
+      <PropertyRef Name="optionsID" />
+    </Key>
+    <Property Name="optionsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trailer" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="bicycleRack" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="babySeat" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Rents" Relationship="Self.RentOptions" FromRole="Options" ToRole="Rents" />
+  </EntityType>
+  <EntityType Name="Rents">
+    <Key>
+      <PropertyRef Name="rentID" />
+    </Key>
+    <Property Name="rentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="autoID" Type="Int32" Nullable="false" />
+    <Property Name="optionsID" Type="Int32" Nullable="false" />
+    <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="insuranse" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Autopark" Relationship="Self.AutoRent" FromRole="Rents" ToRole="Autopark" />
+    <NavigationProperty Name="Options" Relationship="Self.RentOptions" FromRole="Rents" ToRole="Options" />
+    <NavigationProperty Name="TechMessages" Relationship="Self.RentTech" FromRole="Rents" ToRole="TechMessages" />
+    <NavigationProperty Name="Users" Relationship="Self.RentUser" FromRole="Rents" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="TechMessages">
+    <Key>
+      <PropertyRef Name="rentID" />
+    </Key>
+    <Property Name="rentID" Type="Int32" Nullable="false" />
+    <Property Name="start" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Rents" Relationship="Self.RentTech" FromRole="TechMessages" ToRole="Rents" />
+  </EntityType>
+  <EntityType Name="TypeTable">
+    <Key>
+      <PropertyRef Name="typeID" />
+    </Key>
+    <Property Name="typeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="body" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="group" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ModelTable" Relationship="Self.ModelType" FromRole="TypeTable" ToRole="ModelTable" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="Int32" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Rents" Relationship="Self.RentUser" FromRole="Users" ToRole="Rents" />
+  </EntityType>
+  <Association Name="AutoFix">
+    <End Role="Autopark" Type="Self.Autopark" Multiplicity="1" />
+    <End Role="Fixes" Type="Self.Fixes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autopark">
+        <PropertyRef Name="autoID" />
+      </Principal>
+      <Dependent Role="Fixes">
+        <PropertyRef Name="autoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutoModel">
+    <End Role="ModelTable" Type="Self.ModelTable" Multiplicity="1" />
+    <End Role="Autopark" Type="Self.Autopark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModelTable">
+        <PropertyRef Name="modelID" />
+      </Principal>
+      <Dependent Role="Autopark">
+        <PropertyRef Name="modelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutoRent">
+    <End Role="Autopark" Type="Self.Autopark" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autopark">
+        <PropertyRef Name="autoID" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="autoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModelType">
+    <End Role="TypeTable" Type="Self.TypeTable" Multiplicity="1" />
+    <End Role="ModelTable" Type="Self.ModelTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTable">
+        <PropertyRef Name="typeID" />
+      </Principal>
+      <Dependent Role="ModelTable">
+        <PropertyRef Name="typeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentOptions">
+    <End Role="Options" Type="Self.Options" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Options">
+        <PropertyRef Name="optionsID" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="optionsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentTech">
+    <End Role="Rents" Type="Self.Rents" Multiplicity="1" />
+    <End Role="TechMessages" Type="Self.TechMessages" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rents">
+        <PropertyRef Name="rentID" />
+      </Principal>
+      <Dependent Role="TechMessages">
+        <PropertyRef Name="rentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AutoRentDatabaseEntitiesActual" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Autopark" EntityType="Self.Autopark" />
+    <EntitySet Name="Fixes" EntityType="Self.Fixes" />
+    <EntitySet Name="ModelTable" EntityType="Self.ModelTable" />
+    <EntitySet Name="Options" EntityType="Self.Options" />
+    <EntitySet Name="Rents" EntityType="Self.Rents" />
+    <EntitySet Name="TechMessages" EntityType="Self.TechMessages" />
+    <EntitySet Name="TypeTable" EntityType="Self.TypeTable" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="AutoFix" Association="Self.AutoFix">
+      <End Role="Autopark" EntitySet="Autopark" />
+      <End Role="Fixes" EntitySet="Fixes" />
+    </AssociationSet>
+    <AssociationSet Name="AutoModel" Association="Self.AutoModel">
+      <End Role="ModelTable" EntitySet="ModelTable" />
+      <End Role="Autopark" EntitySet="Autopark" />
+    </AssociationSet>
+    <AssociationSet Name="AutoRent" Association="Self.AutoRent">
+      <End Role="Autopark" EntitySet="Autopark" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+    <AssociationSet Name="ModelType" Association="Self.ModelType">
+      <End Role="TypeTable" EntitySet="TypeTable" />
+      <End Role="ModelTable" EntitySet="ModelTable" />
+    </AssociationSet>
+    <AssociationSet Name="RentOptions" Association="Self.RentOptions">
+      <End Role="Options" EntitySet="Options" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+    <AssociationSet Name="RentTech" Association="Self.RentTech">
+      <End Role="Rents" EntitySet="Rents" />
+      <End Role="TechMessages" EntitySet="TechMessages" />
+    </AssociationSet>
+    <AssociationSet Name="RentUser" Association="Self.RentUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

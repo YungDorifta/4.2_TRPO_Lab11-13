@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ContosoSite.Models.Options>
+
+@{
+    ViewBag.Title = "Options";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.trailer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bicycleRack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.babySeat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.trailer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bicycleRack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.babySeat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.optionsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.optionsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.optionsID })
+        </td>
+    </tr>
+}
+
+</table>

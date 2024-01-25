@@ -1,0 +1,80 @@
+﻿@model ContosoSite.Models.Rents
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rents</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.startTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.insuranse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.insuranse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Autopark.licensePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autopark.licensePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Options.trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Options.trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechMessages.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechMessages.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.FIO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

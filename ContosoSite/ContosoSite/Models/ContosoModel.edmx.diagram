@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="451ad15441d14d61abfae068c243b5d2" Name="Diagram1">
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.Autopark" Width="1.5" PointX="5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.Fixes" Width="1.5" PointX="2.875" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.ModelTable" Width="1.5" PointX="2.875" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.Options" Width="1.5" PointX="6.875" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.Rents" Width="1.5" PointX="9" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.TechMessages" Width="1.5" PointX="12.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.TypeTable" Width="1.5" PointX="0.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoRentDatabaseModel.Users" Width="1.5" PointX="6.875" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="AutoRentDatabaseModel.AutoFix" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoRentDatabaseModel.AutoModel" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoRentDatabaseModel.AutoRent" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoRentDatabaseModel.ModelType" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoRentDatabaseModel.RentOptions" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoRentDatabaseModel.RentTech" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoRentDatabaseModel.RentUser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
