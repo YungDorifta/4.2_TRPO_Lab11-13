@@ -30,7 +30,7 @@ namespace ContosoSite.Controllers
             var rents = db.Rents.Include(r => r.Autopark).Include(r => r.Options).Include(r => r.TechMessages).Include(r => r.Users);
             if (!String.IsNullOrEmpty(searchString))
             {
-                rents = rents.Where(s => s.Users.FIO.Contains(searchString));
+                rents = rents.Where((s) => s.Users.FIO.Contains(searchString));
             }
             switch (sortOrder)
             {
@@ -41,9 +41,10 @@ namespace ContosoSite.Controllers
                     rents = rents.OrderByDescending(s => s.startTime);
                     break;
                 default:
-                    rents = db.Rents.OrderBy(s => s.userID);
+                    rents = rents.OrderBy(s => s.userID);
                     break;
             }
+            //ViewBag.ErrorMessage = rents.ToList()[0].Users.FIO.ToString() + rents.ToList()[1].Users.FIO.ToString() + rents.ToList()[2].Users.FIO.ToString();
             return View(rents.ToList());
         }
 

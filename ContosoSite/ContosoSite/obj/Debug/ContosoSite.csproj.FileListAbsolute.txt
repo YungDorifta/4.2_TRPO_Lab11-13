@@ -173,3 +173,4 @@ H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\obj\Debug\ContosoSite.
 H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\obj\Debug\ContosoSite.csproj.CopyComplete
 H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\obj\Debug\ContosoSite.dll
 H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\obj\Debug\ContosoSite.pdb
+H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\obj\Debug\ContosoSite.csprojAssemblyReference.cache
