@@ -90,7 +90,7 @@ namespace ContosoSite.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "modelID,brand,model,typeID,photo")] ModelTable modelTable, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "modelID,brand,model,typeID,photo")] ModelTable modelTable, HttpPostedFileBase upload, string delphoto)
         {
             try
             {
@@ -103,6 +103,12 @@ namespace ContosoSite.Controllers
                         {
                             modelTable.photo = reader.ReadBytes(upload.ContentLength);
                         }
+                        db.SaveChanges();
+                    }
+
+                    else if (delphoto != null)
+                    {
+                        modelTable.photo = null;
                         db.SaveChanges();
                     }
 

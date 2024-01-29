@@ -1,12 +1,12 @@
 ﻿@model ContosoSite.Models.ModelTable
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Создать:";
 }
 
 <h2>Новая модель авто</h2>
 
-@using (Html.BeginForm(Html.BeginForm("Create", "Buses", null, FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Html.BeginForm(Html.BeginForm("Create", "ModelTables", null, FormMethod.Post, new { enctype = "multipart/form-data" })))
 {
     @Html.AntiForgeryToken()
 
