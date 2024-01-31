@@ -167,6 +167,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Insert_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="phone" Type="int" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="FIO" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="Хранилище AutoRentDatabaseModelContainer">
           <EntitySet Name="Autopark" EntityType="Self.Autopark" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fixes" EntityType="Self.Fixes" Schema="dbo" store:Type="Tables" />
@@ -422,6 +428,12 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Rents" EntitySet="Rents" />
           </AssociationSet>
+          <FunctionImport Name="Insert_User" ReturnType="Collection(Int32)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="phone" Mode="In" Type="Int32" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="FIO" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -515,6 +527,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Insert_User" FunctionName="Хранилище AutoRentDatabaseModel.Insert_User" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

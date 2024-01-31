@@ -12,6 +12,8 @@ namespace ContosoSite.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AutoRentDatabaseEntitiesActual : DbContext
     {
@@ -33,5 +35,26 @@ namespace ContosoSite.Models
         public virtual DbSet<TechMessages> TechMessages { get; set; }
         public virtual DbSet<TypeTable> TypeTable { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> Insert_User(string email, Nullable<int> phone, string password, string fIO)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var phoneParameter = phone.HasValue ?
+                new ObjectParameter("phone", phone) :
+                new ObjectParameter("phone", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            var fIOParameter = fIO != null ?
+                new ObjectParameter("FIO", fIO) :
+                new ObjectParameter("FIO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Insert_User", emailParameter, phoneParameter, passwordParameter, fIOParameter);
+        }
     }
 }

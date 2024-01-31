@@ -213,5 +213,11 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Rents" EntitySet="Rents" />
     </AssociationSet>
+    <FunctionImport Name="Insert_User" ReturnType="Collection(Int32)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="FIO" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

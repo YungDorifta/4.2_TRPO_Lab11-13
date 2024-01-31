@@ -1,3 +1,9 @@
-5.Добавить авторизацию и регистрацию
+3.Фильтр и строка поиска (готово: Rents)
+4.Картинки (готово: Models)
+5.Добавить авторизацию (не готово) и регистрацию (готово: Home page)
 
-я сейчас: Добавить авторизацию и регистрацию (ХП для регистрации добавлено)
+я сейчас: Добавить авторизацию 
+
+Имя: 		H:\ТРПО\ЛАБЫ\-ЛАБ12-13\CONTOSOSITE\CONTOSOSITE\APP_DATA\AUTORENTDATABASE.MDF
+Строка подкл: 	Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Application Name=EntityFramework
+Первич путь: 	H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf

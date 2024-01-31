@@ -25,7 +25,7 @@ BEGIN
 						 @email,
 						 @phone,
 						 @password,
-						 "Клиент")
+						 'Клиент')
              select 1
               --SELECT SCOPE_IDENTITY() AS UserId -- UserId                     
      END

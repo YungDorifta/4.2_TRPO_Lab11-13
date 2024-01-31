@@ -87,5 +87,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Insert_User" FunctionName="Хранилище AutoRentDatabaseModel.Insert_User" />
   </EntityContainerMapping>
 </Mapping>
