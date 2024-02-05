@@ -56,5 +56,18 @@ namespace ContosoSite.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Insert_User", emailParameter, phoneParameter, passwordParameter, fIOParameter);
         }
+    
+        public virtual ObjectResult<LoginByEmailPassword_Result> LoginByEmailPassword(string email, string password)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LoginByEmailPassword_Result>("LoginByEmailPassword", emailParameter, passwordParameter);
+        }
     }
 }

@@ -173,6 +173,10 @@
           <Parameter Name="password" Type="nvarchar" Mode="In" />
           <Parameter Name="FIO" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="LoginByEmailPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="Хранилище AutoRentDatabaseModelContainer">
           <EntitySet Name="Autopark" EntityType="Self.Autopark" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fixes" EntityType="Self.Fixes" Schema="dbo" store:Type="Tables" />
@@ -434,7 +438,15 @@
             <Parameter Name="password" Mode="In" Type="String" />
             <Parameter Name="FIO" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="LoginByEmailPassword" ReturnType="Collection(AutoRentDatabaseModel.LoginByEmailPassword_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="LoginByEmailPassword_Result">
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="20" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -528,6 +540,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Insert_User" FunctionName="Хранилище AutoRentDatabaseModel.Insert_User" />
+          <FunctionImportMapping FunctionImportName="LoginByEmailPassword" FunctionName="Хранилище AutoRentDatabaseModel.LoginByEmailPassword">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AutoRentDatabaseModel.LoginByEmailPassword_Result">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

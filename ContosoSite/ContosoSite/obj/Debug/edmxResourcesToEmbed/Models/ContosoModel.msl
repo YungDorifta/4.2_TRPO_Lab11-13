@@ -88,5 +88,13 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="Insert_User" FunctionName="Хранилище AutoRentDatabaseModel.Insert_User" />
+    <FunctionImportMapping FunctionImportName="LoginByEmailPassword" FunctionName="Хранилище AutoRentDatabaseModel.LoginByEmailPassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AutoRentDatabaseModel.LoginByEmailPassword_Result">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

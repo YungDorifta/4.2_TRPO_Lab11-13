@@ -219,5 +219,13 @@
       <Parameter Name="password" Mode="In" Type="String" />
       <Parameter Name="FIO" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="LoginByEmailPassword" ReturnType="Collection(AutoRentDatabaseModel.LoginByEmailPassword_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="LoginByEmailPassword_Result">
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="20" />
+  </ComplexType>
 </Schema>

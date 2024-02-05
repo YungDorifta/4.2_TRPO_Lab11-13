@@ -161,6 +161,9 @@
     <Compile Include="Models\Fixes.cs">
       <DependentUpon>ContosoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginByEmailPassword_Result.cs">
+      <DependentUpon>ContosoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModelTable.cs">
       <DependentUpon>ContosoModel.tt</DependentUpon>
     </Compile>
@@ -280,6 +283,7 @@
     <Content Include="Views\ModelTables\Index.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\ForAuthorized.cshtml" />
+    <Content Include="Views\Home\Authorization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Registration\" />

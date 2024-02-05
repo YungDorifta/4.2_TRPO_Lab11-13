@@ -1,16 +1,24 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    
+
 }
 
-<br>
-<div>
-    <a href="../Home/ForAuthorized">Authorized</a><br>
+<div class="jumbotron">
+    <h1>Приветствуем!</h1>
+    <p class="lead">Login from "@User.Identity.Name" Account.</p>
 </div>
 
-<br>
-<div>
-    <a href="../Home/Registration">Registration</a>
+
+<br><br><br>
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="../Home/ForAuthorized">Все страницы</a>
+}
+
+<div style="display: flex;  flex-wrap: nowrap; justify-content: space-between; width: 200px; margin: auto;">
+    <a href="../Home/Registration">Sign Up</a>
+    <div style="width: 10px;"></div>
+    <a href="../Home/Authorization">Log in</a>
 </div>
 
 <div class="UsersTable">

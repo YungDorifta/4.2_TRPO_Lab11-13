@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,8 +36,31 @@ namespace ContosoSite.Controllers
         //страница регистрации
         public ActionResult Registration()
         {
-            ViewBag.Message = "Your registration page.";
+            ViewBag.Message = "Create your account";
 
+            return View();
+        }
+
+        //страница авторизации
+        public ActionResult Authorization(string returnUrl)
+        {
+            ViewBag.Message = "Log in here!";
+
+            try
+            {
+                // Verification.    
+                if (this.Request.IsAuthenticated)
+                {
+                    // Info.    
+                    return this.RedirectToLocal(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+
+            }
+            // Info.    
             return View();
         }
 
@@ -45,7 +70,7 @@ namespace ContosoSite.Controllers
             return View();
         }
 
-
+        //Регистрация
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Registration([Bind(Include = "FIO, email, phone, password")] Users users)
@@ -59,7 +84,42 @@ namespace ContosoSite.Controllers
             return View(users);
         }
 
-        //выполнение хранимой процедуры для регистрации
+        //авторизация
+        public async Task<ActionResult> Authorize(Users model, string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (ModelState.IsValid)
+                {
+                    // Initialization.    
+                    var loginInfo = this.db.LoginByEmailPassword(model.email, model.password).ToList();
+                    // Verification.    
+                    if (loginInfo != null && loginInfo.Count() > 0)
+                    {
+                        // Initialization.    
+                        var logindetails = loginInfo.First();
+                        // Login In.    
+                        this.SignInUser(logindetails.email, false);
+                        // Info.    
+                        return this.RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid username or password.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            // If we got this far, something failed, redisplay form    
+            return View(model);
+        }
+
+
+        //выполнение ХП регистрация
         public ActionResult InsertUser([Bind(Include = "UserID,FIO,role,email,phone,password")] Users users)
         {
             try
@@ -89,5 +149,48 @@ namespace ContosoSite.Controllers
 
             return this.View(users);
         }
+
+        // !!!Дать войти пользователю
+        private void SignInUser(string username, bool isPersistent)
+        {
+            // Initialization.    
+            var claims = new List<Claim>();
+            try
+            {
+                // Setting    
+                claims.Add(new Claim(ClaimTypes.Name, username));
+                var claimIdenties = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+                var ctx = Request.GetOwinContext();
+                var authenticationManager = ctx.Authentication;
+                // Sign In.    
+                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, claimIdenties);
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                throw ex;
+            }
+        }
+
+        //Переход к локальной странице
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            try
+            {
+                // Verification.    
+                if (Url.IsLocalUrl(returnUrl))
+                {
+                    // Info.    
+                    return this.Redirect(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+            }
+            // Info.    
+            return this.RedirectToAction("Index", "Home");
+        }
+
     }
 }
