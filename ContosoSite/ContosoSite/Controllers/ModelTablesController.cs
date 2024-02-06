@@ -122,8 +122,10 @@ namespace ContosoSite.Controllers
                 }
                 return View(modelTable);
             }
-            catch (Exception e){}
-            return View(modelTable);
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         
 

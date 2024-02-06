@@ -2,8 +2,16 @@
 4.Картинки (готово: Models)
 5.Добавить авторизацию (не готово) и регистрацию (готово: Home page)
 
-я сейчас: Добавление авторизации: исправить ошибки, переделать под свой вариант, добавить необходимые файлы и ф-ции из методички
+Я сейчас: 	Добавил необходимые библиотеки.
+		Нужно переделать под свой вариант. 
+		Переделать сами cshtml авторизации и выхода. 
+		Устранить ошибки, возникающие при сборке
 
+
+
+
+
+База
 Имя: 		H:\ТРПО\ЛАБЫ\-ЛАБ12-13\CONTOSOSITE\CONTOSOSITE\APP_DATA\AUTORENTDATABASE.MDF
 Строка подкл: 	Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Application Name=EntityFramework
 Первич путь: 	H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf

@@ -1,4 +1,6 @@
 ﻿using ContosoSite.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +43,7 @@ namespace ContosoSite.Controllers
             return View();
         }
 
-        //страница авторизации
+        //страница входа в аккаунт
         public ActionResult Authorization(string returnUrl)
         {
             ViewBag.Message = "Log in here!";
@@ -57,11 +59,34 @@ namespace ContosoSite.Controllers
             }
             catch (Exception ex)
             {
-                // Info    
-
+                // Info  
+                throw ex;
             }
             // Info.    
             return View();
+        }
+
+        //страница выхода из аккаунта
+        public ActionResult LogOff()
+        {
+            {
+                try
+                {
+                    // Setting.    
+                    var ctx = Request.GetOwinContext();
+                    var authenticationManager = ctx.Authentication;
+                    // Sign Out.    
+                    authenticationManager.SignOut();
+                }
+                catch (Exception ex)
+                {
+                    // Info   
+                    throw ex;
+                }
+                // Info.    
+                return this.RedirectToAction("Home", "Authorization");
+            }
+
         }
 
         //страница для авторизированных пользователей
@@ -102,7 +127,7 @@ namespace ContosoSite.Controllers
                         // Login In.    
                         this.SignInUser(logindetails.email, false);
                         // Info.    
-                        return this.RedirectToLocal(returnUrl);
+                        return RedirectToLocal(returnUrl);
                     }
                     else
                     {
@@ -112,12 +137,12 @@ namespace ContosoSite.Controllers
             }
             catch (Exception ex)
             {
-
+                // Info  
+                throw ex;
             }
             // If we got this far, something failed, redisplay form    
             return View(model);
         }
-
 
         //выполнение ХП регистрация
         public ActionResult InsertUser([Bind(Include = "UserID,FIO,role,email,phone,password")] Users users)
@@ -145,12 +170,15 @@ namespace ContosoSite.Controllers
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                // Info  
+                throw ex;
+            }
 
             return this.View(users);
         }
 
-        // !!!Дать войти пользователю
+        //Дать войти пользователю
         private void SignInUser(string username, bool isPersistent)
         {
             // Initialization.    
@@ -186,7 +214,8 @@ namespace ContosoSite.Controllers
             }
             catch (Exception ex)
             {
-                // Info    
+                // Info  
+                throw ex;
             }
             // Info.    
             return this.RedirectToAction("Index", "Home");
