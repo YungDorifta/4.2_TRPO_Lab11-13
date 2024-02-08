@@ -1,0 +1,19 @@
+Лаб 11: сделать полностью БД через Visual Studio в приложении ASP
+
+Лаб 12: сделать приложение по работе с БД и реализовать в нем функционал:
+на 3.Фильтр и строка поиска (готово: Rents)
+на 4.Картинки (готово: Models)
+на 5.Добавить авторизацию и регистрацию (готово: Home page)
+
+Лаб 13: реализовать функционал, не указанный в методичке
+
+Я сейчас: 	Доделал 12, нужно продумать функционал для 13
+
+
+
+
+
+БД подключение
+Имя: 		H:\ТРПО\ЛАБЫ\-ЛАБ12-13\CONTOSOSITE\CONTOSOSITE\APP_DATA\AUTORENTDATABASE.MDF
+Строка подкл: 	Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Application Name=EntityFramework
+Первич путь: 	H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf
