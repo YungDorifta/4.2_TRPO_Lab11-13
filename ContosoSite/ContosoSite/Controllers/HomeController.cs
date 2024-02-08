@@ -110,7 +110,9 @@ namespace ContosoSite.Controllers
         }
 
         //авторизация
-        public async Task<ActionResult> Authorize(Users model, string returnUrl)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Authorization(Users model, string returnUrl)
         {
             try
             {
@@ -125,7 +127,7 @@ namespace ContosoSite.Controllers
                         // Initialization.    
                         var logindetails = loginInfo.First();
                         // Login In.    
-                        this.SignInUser(logindetails.email, false);
+                        SignInUser(logindetails.email, false);
                         // Info.    
                         return RedirectToLocal(returnUrl);
                     }
@@ -138,7 +140,6 @@ namespace ContosoSite.Controllers
             catch (Exception ex)
             {
                 // Info  
-                throw ex;
             }
             // If we got this far, something failed, redisplay form    
             return View(model);

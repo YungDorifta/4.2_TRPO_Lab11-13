@@ -212,6 +212,7 @@
       <DependentUpon>ContosoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\AutoRentDatabase.mdf" />
