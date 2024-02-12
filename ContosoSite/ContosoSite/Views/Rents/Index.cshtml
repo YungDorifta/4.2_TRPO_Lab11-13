@@ -4,10 +4,10 @@
     ViewBag.Title = "Rents";
 }
 
-<h2>Index</h2>
+<h2>Ваши заказы</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Сформировать новый заказ", "Create")
 </p>
 
 <br>
@@ -15,7 +15,7 @@
 {
 
     <p>
-        Find by FIO: @Html.TextBox("searchString")
+        Найти по ФИО: @Html.TextBox("searchString")
         <input type="submit" value="Search" />
     <p>@ViewBag.ErrorMessage</p>
     </p>
@@ -25,25 +25,19 @@
     <table class="table">
         <tr>
             <th>
-                @Html.ActionLink("startTime", "Index", new { sortOrder = ViewBag.DateSortParm })
+                @Html.ActionLink("Время начала", "Index", new { sortOrder = ViewBag.DateSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.endTime)
+                <p>Время окончания</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.insuranse)
+                <p>Страховка</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Autopark.licensePlate)
+                <p>Номер автомобиля</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Options.trailer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TechMessages.description)
-            </th>
-            <th>
-                @Html.ActionLink("FIO", "Index", new { sortOrder = ViewBag.NameSortParm })
+                @Html.ActionLink("ФИО", "Index", new { sortOrder = ViewBag.NameSortParm })
             </th>
             <th></th>
         </tr>
@@ -64,18 +58,12 @@
                     @Html.DisplayFor(modelItem => item.Autopark.licensePlate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Options.trailer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TechMessages.description)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Users.FIO)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.rentID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.rentID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.rentID })
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.rentID }) |
+                    @Html.ActionLink("Подробности", "Details", new { id = item.rentID }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.rentID })
                 </td>
             </tr>
         }

@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Создать заказ</h2>
 
 
 @using (Html.BeginForm()) 
@@ -16,15 +16,24 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.userID, "userID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.userID, "ФИО", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <script>
+                    var userRole = 
+                    if (@User.Identity.IsAuthenticated) {
+                        
+                    }
+                    else {
+
+                    }
+                </script>
                 @Html.DropDownList("userID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.autoID, "autoID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.autoID, "Автомобиль", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("autoID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.autoID, "", new { @class = "text-danger" })
@@ -32,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.optionsID, "optionsID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.optionsID, "Опции", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("optionsID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.optionsID, "", new { @class = "text-danger" })
@@ -40,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.startTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.startTime, "Время начала", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.startTime, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.startTime, "", new { @class = "text-danger" })
@@ -48,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.endTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.endTime, "Время окончания", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.endTime, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.endTime, "", new { @class = "text-danger" })
@@ -56,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.insuranse, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.insuranse, "Тариф страховки", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.insuranse, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.insuranse, "", new { @class = "text-danger" })
@@ -65,7 +74,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Создать" class="btn btn-default" />
             </div>
         </div>
     </div>

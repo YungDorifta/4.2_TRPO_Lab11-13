@@ -20,33 +20,90 @@ namespace ContosoSite.Controllers
         {
             return View();
         }
-
+        
+        //о приложении
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Описание приложения:";
 
             return View();
         }
 
+        //контакты 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Контакты создателя сайта:";
 
             return View();
         }
+
+
+
 
         //страница регистрации
         public ActionResult Registration()
         {
-            ViewBag.Message = "Create your account";
+            ViewBag.Message = "Здесь Вы можете создать новый аккаунт:";
 
             return View();
         }
 
-        //страница входа в аккаунт
+        //Регистрация
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Registration([Bind(Include = "FIO, email, phone, password")] Users users)
+        {
+            if (ModelState.IsValid)
+            {
+                InsertUser(users);
+                // Login In.    
+                SignInUser(users.email, false);
+                return RedirectToAction("Index");
+            }
+
+            return View(users);
+        }
+
+        //выполнение ХП регистрация
+        public ActionResult InsertUser([Bind(Include = "UserID,FIO,role,email,phone,password")] Users users)
+        {
+            try
+            {
+                // Verification.    
+                if (ModelState.IsValid)
+                {
+                    // Initialization.    
+                    var regInfo = this.db.Insert_User(users.email, users.phone, users.password, users.FIO).ToList();
+                    // Verification.    
+                    if (regInfo != null && Convert.ToInt32(regInfo[0]) != -1)
+                    {
+                        //SAVING CHANGES TO DATABASE
+                        db.SaveChanges();
+                        //    return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Index");
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Пользователь с таким именем/эл. почтой/телефоном уже существует!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info  
+                throw ex;
+            }
+
+            return this.View(users);
+        }
+
+
+
+        //страница авторизации
         public ActionResult Authorization(string returnUrl)
         {
-            ViewBag.Message = "Log in here!";
+            ViewBag.Message = "Войдите в аккаунт здесь:";
 
             try
             {
@@ -64,49 +121,6 @@ namespace ContosoSite.Controllers
             }
             // Info.    
             return View();
-        }
-
-        //страница выхода из аккаунта
-        public ActionResult LogOff()
-        {
-            {
-                try
-                {
-                    // Setting.    
-                    var ctx = Request.GetOwinContext();
-                    var authenticationManager = ctx.Authentication;
-                    // Sign Out.    
-                    authenticationManager.SignOut();
-                }
-                catch (Exception ex)
-                {
-                    // Info   
-                    throw ex;
-                }
-                // Info.    
-                return this.RedirectToAction("Home", "Authorization");
-            }
-
-        }
-
-        //страница для авторизированных пользователей
-        public ActionResult ForAuthorized()
-        {
-            return View();
-        }
-
-        //Регистрация
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Registration([Bind(Include = "FIO, email, phone, password")] Users users)
-        {
-            if (ModelState.IsValid)
-            {
-                InsertUser(users);
-                return RedirectToAction("Index");
-            }
-
-            return View(users);
         }
 
         //авторизация
@@ -133,7 +147,7 @@ namespace ContosoSite.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "Invalid username or password.");
+                        ModelState.AddModelError(string.Empty, "Неправильно введена эл. почта и/или пароль");
                     }
                 }
             }
@@ -145,41 +159,7 @@ namespace ContosoSite.Controllers
             return View(model);
         }
 
-        //выполнение ХП регистрация
-        public ActionResult InsertUser([Bind(Include = "UserID,FIO,role,email,phone,password")] Users users)
-        {
-            try
-            {
-                // Verification.    
-                if (ModelState.IsValid)
-                {
-                    // Initialization.    
-                    var regInfo = this.db.Insert_User(users.email, users.phone, users.password, users.FIO).ToList();
-                    // Verification.    
-                    if (regInfo != null && Convert.ToInt32(regInfo[0]) != -1)
-                    {
-                        //SAVING CHANGES TO DATABASE
-                        db.SaveChanges();
-                        //    return RedirectToAction("Index", "Home");
-                        return RedirectToAction("Home", "Index");
-
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Пользователь с таким именем/e-mail/телефоном уже существует!");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Info  
-                throw ex;
-            }
-
-            return this.View(users);
-        }
-
-        //Дать войти пользователю
+        //выполнение ХП авторизация
         private void SignInUser(string username, bool isPersistent)
         {
             // Initialization.    
@@ -201,6 +181,38 @@ namespace ContosoSite.Controllers
             }
         }
 
+        //выход из аккаунта
+        public ActionResult LogOff()
+        {
+            {
+                try
+                {
+                    // Setting.    
+                    var ctx = Request.GetOwinContext();
+                    var authenticationManager = ctx.Authentication;
+                    // Sign Out.    
+                    authenticationManager.SignOut();
+                }
+                catch (Exception ex)
+                {
+                    // Info   
+                    throw ex;
+                }
+                // Info.    
+                return this.RedirectToAction("Authorization", "Home");
+            }
+
+        }
+
+
+
+
+        //страница для авторизированных пользователей
+        public ActionResult ForAuthorized()
+        {
+            return View();
+        }
+        
         //Переход к локальной странице
         private ActionResult RedirectToLocal(string returnUrl)
         {

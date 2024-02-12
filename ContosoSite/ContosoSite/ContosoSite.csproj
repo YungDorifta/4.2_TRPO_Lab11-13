@@ -223,6 +223,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -314,8 +315,10 @@
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\ForAuthorized.cshtml" />
     <Content Include="Views\Home\Authorization.cshtml" />
+    <Content Include="Views\Home\LogOff.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\" />
     <Folder Include="Views\Registration\" />
   </ItemGroup>
   <ItemGroup>

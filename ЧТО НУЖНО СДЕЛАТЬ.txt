@@ -1,5 +1,10 @@
 Лаб 11: сделать полностью БД через Visual Studio в приложении ASP
 
+БД подключение
+Имя: 		H:\ТРПО\ЛАБЫ\-ЛАБ12-13\CONTOSOSITE\CONTOSOSITE\APP_DATA\AUTORENTDATABASE.MDF
+Строка подкл: 	Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Application Name=EntityFramework
+Первич путь: 	H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf
+
 Лаб 12: сделать приложение по работе с БД и реализовать в нем функционал:
 на 3.Фильтр и строка поиска (готово: Rents)
 на 4.Картинки (готово: Models)
@@ -7,13 +12,29 @@
 
 Лаб 13: реализовать функционал, не указанный в методичке
 
-Я сейчас: 	Доделал 12, нужно продумать функционал для 13
 
 
 
 
 
-БД подключение
-Имя: 		H:\ТРПО\ЛАБЫ\-ЛАБ12-13\CONTOSOSITE\CONTOSOSITE\APP_DATA\AUTORENTDATABASE.MDF
-Строка подкл: 	Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Application Name=EntityFramework
-Первич путь: 	H:\ТРПО\Лабы\-Лаб12-13\ContosoSite\ContosoSite\App_Data\AutoRentDatabase.mdf
+
+Я сейчас: 	+Доделал 12, нужно продумать индивидуальный функционал для 13;
+		+Переделана главная страница;
+		+При регистрации происходит авторизация автоматически;
+		-Переделать видимость таблиц, сделать отдельный функционал для администратора;
+		!-Сделать калькулятор цены при создании заказа клиентом
+		!-Переделать выбор тарифа страховки
+		!-Переделать при формировании заказа клиентом чобы вбито имя было
+
+Зернова предлагает:
+		-выгрузка в ворд по шаблону
+		!-диаграмма статистика
+		-дизайн страницы 
+		-сложный запрос для вывода с нескольких таблиц / статистика и т д
+		!-разделение информации по ролям
+
+
+
+
+
+

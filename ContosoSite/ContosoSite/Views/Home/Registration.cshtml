@@ -1,7 +1,7 @@
 ﻿@model ContosoSite.Models.Users
 
 @{
-    ViewBag.Title = "Registration";
+    ViewBag.Title = "Страница регистрации";
 }
 
 <!DOCTYPE html>
@@ -26,36 +26,36 @@
 
             <div>
                 <p>ФИО: </p>
-                @Html.EditorFor(model => model.FIO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FIO, "ФИО: ", new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FIO, "", new { @class = "text-danger" })
             </div><br>
 
 
             <div>
                 <p>E-mail: </p>
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.email, "Эл. почта: ", new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </div><br>
 
             <div>
                 <p>Телефон: </p>
-                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.phone, "Номер телефона: ", new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
             </div><br>
 
             <div>
                 <p>Пароль: </p>
-                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.password, "Пароль: ", new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
             </div>
 
 
-            <br><br><input type="submit" value="Sign Up" /><br>
+            <br><br><input type="submit" value="Создать аккаунт" /><br><br>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Back to start page", "Index")
+        @Html.ActionLink("На главную", "Index")
     </div>
 
 </body>

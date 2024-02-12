@@ -3,24 +3,44 @@
 
 }
 
-<div class="jumbotron">
-    <h1>Приветствуем!</h1>
-    <p class="lead">Login from "@User.Identity.Name" Account.</p>
-</div>
+<body class="homebody">
+    <div style="background-color: #fff;">
+
+        <div class="jumbotron">
+            @if (@User.Identity.IsAuthenticated)
+            {
+                <h1>Приветствуем!</h1>
+                <p class="lead">Выполнен вход с аккаунта: @User.Identity.Name</p>
+            }
+            else
+            {
+                <h1>Приветствуем!</h1>
+                <p>Войдите в аккаунт или зарегестрируйтесь</p>
+            }
+        </div>
 
 
-<br><br><br>
-@if (@User.Identity.IsAuthenticated)
-{
-    <a href="../Home/ForAuthorized">Все страницы</a>
-}
+        <br><br><br>
 
-<div style="display: flex;  flex-wrap: nowrap; justify-content: space-between; width: 200px; margin: auto;">
-    <a href="../Home/Registration">Sign Up</a>
-    <div style="width: 10px;"></div>
-    <a href="../Home/Authorization">Log in</a>
-</div>
+        @if (@User.Identity.IsAuthenticated)
+        {
+            <div style="display: flex; align-items: center">
+                <a href="../Home/ForAuthorized" style="display: block; margin: auto;">Все страницы</a>
+                <br><br><br>
+            </div>
+        }
 
-<div class="UsersTable">
-
-</div>
+        <div style="display: flex;  flex-wrap: nowrap; align-items: center; justify-content: space-between; width: 300px; margin: auto;">
+            @if (@User.Identity.IsAuthenticated)
+            {
+                <a href="../Home/LogOff" style="margin: auto;">Выйти из аккаунта</a>
+            }
+            else
+            {
+                <a href="../Home/Registration" style="display: block;">Заргестрироваться</a>
+                <div style="width: 10px;"></div>
+                <a href="../Home/Authorization">Войти в аккаунт</a>
+            }
+        </div>
+    </div>
+</body>
