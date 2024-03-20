@@ -13,7 +13,7 @@ namespace ContosoSite.Controllers
     public class UsersController : Controller
     {
         private AutoRentDatabaseEntitiesActual db = new AutoRentDatabaseEntitiesActual();
-
+        
         // GET: Users
         public ActionResult Index()
         {

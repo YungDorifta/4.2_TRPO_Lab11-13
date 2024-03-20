@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.homebody {
+    /* 
+        background-image: url("../Images/HomeBG.bmp");
+        background-repeat: no-repeat;
+        background-size: cover;
+    */
+
+    background-color: lightblue;
+}
+
+.MainPageActionSpace {
+    border: 3px solid grey;
+    border-radius: 15px;
+    width: inherit;
+    height: 50px;
+}

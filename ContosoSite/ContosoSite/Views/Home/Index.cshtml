@@ -1,6 +1,5 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-
 }
 
 <body class="homebody">
@@ -20,7 +19,18 @@
         </div>
 
 
-        <br><br><br>
+        @if (@User.Identity.IsAuthenticated)
+        {
+            <div class="MainPageActionSpace">
+                <a class="ssylkabutton" href="../Rents/Index">Арендовать автомобиль</a>
+            </div>
+            <div class="MainPageActionSpace">
+                <a class="ssylkabutton" href="../Rents/Index">Просмотреть доступные автомобили</a>
+            </div>
+            <div class="MainPageActionSpace">
+                <a class="ssylkabutton" href="../Rents/Index">Че-нить еще</a>
+            </div>
+        }
 
         @if (@User.Identity.IsAuthenticated)
         {

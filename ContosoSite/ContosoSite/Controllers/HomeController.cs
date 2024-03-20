@@ -212,7 +212,7 @@ namespace ContosoSite.Controllers
         {
             return View();
         }
-        
+
         //Переход к локальной странице
         private ActionResult RedirectToLocal(string returnUrl)
         {

@@ -12,6 +12,24 @@ html {
 body {
   margin: 0;
 }
+
+
+
+.MainPageActionSpace {
+    border: 3px solid grey;
+    border-radius: 15px;
+    width: inherit;
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+
 article,
 aside,
 details,
