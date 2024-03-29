@@ -313,13 +313,15 @@
     <Content Include="Views\ModelTables\Edit.cshtml" />
     <Content Include="Views\ModelTables\Index.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
-    <Content Include="Views\Home\ForAuthorized.cshtml" />
+    <Content Include="Views\Home\AllTables.cshtml" />
     <Content Include="Views\Home\Authorization.cshtml" />
     <Content Include="Views\Home\LogOff.cshtml" />
+    <Content Include="Views\ClientPages\FormirovanieZakaza.cshtml" />
+    <Content Include="Views\ClientPages\ProsmotrAvto.cshtml" />
+    <Content Include="Views\ClientPages\ProsmotrZakazov.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Views\Registration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

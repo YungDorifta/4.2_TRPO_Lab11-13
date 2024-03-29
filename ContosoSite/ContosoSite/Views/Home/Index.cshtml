@@ -2,6 +2,10 @@
     ViewBag.Title = "Home Page";
 }
 
+<!-- Доделать функции для клиента: формирование заказа, калькуляция цены -->
+<!-- Доделать функции для админа: формирование в ворде отчета по поломкам -->
+<!-- Доделать функции для админа: формирование диаграммы по заказам (типы авто) -->
+
 <body class="homebody">
     <div style="background-color: #fff;">
 
@@ -18,7 +22,7 @@
             }
         </div>
 
-
+        <!-- Функционал для авторизованного клиента -->
         @if (@User.Identity.IsAuthenticated)
         {
             <div class="MainPageActionSpace">
@@ -32,13 +36,24 @@
             </div>
         }
 
+        <!-- Функционал для авторизованного админа -->
         @if (@User.Identity.IsAuthenticated)
         {
             <div style="display: flex; align-items: center">
-                <a href="../Home/ForAuthorized" style="display: block; margin: auto;">Все страницы</a>
-                <br><br><br>
+                <a href="../Home/AllTables" style="display: block; margin: auto;">Все таблицы</a>
             </div>
+            <br><br><br>
         }
+
+        <!-- Функционал для авторизованного сотрудника техподдержки -->
+        <div>
+
+        </div>
+
+        <!-- Функционал для авторизованного механика -->
+        <div>
+
+        </div>
 
         <div style="display: flex;  flex-wrap: nowrap; align-items: center; justify-content: space-between; width: 300px; margin: auto;">
             @if (@User.Identity.IsAuthenticated)

@@ -207,8 +207,8 @@ namespace ContosoSite.Controllers
 
 
 
-        //страница для авторизированных пользователей
-        public ActionResult ForAuthorized()
+        //все таблицы (для авторизированного администратора)
+        public ActionResult AllTables()
         {
             return View();
         }
