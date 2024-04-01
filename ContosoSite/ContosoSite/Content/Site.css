@@ -23,6 +23,8 @@ textarea {
     max-width: 280px;
 }
 
+/* Общее содержимое */
+
 .homebody {
     /* 
         background-image: url("../Images/HomeBG.bmp");
@@ -33,9 +35,60 @@ textarea {
     background-color: lightblue;
 }
 
+.PageInfoPlace{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Greeting{
+    display:block;
+    margin: auto;
+}
+
+.Text {
+    color: darkslateblue;
+    /* -webkit-text-stroke: 1px darkblue; Толщина и цвет обводки */
+}
+
+
+/* Главная страница */
+
 .MainPageActionSpace {
     border: 3px solid grey;
     border-radius: 15px;
+    background-color: grey;
     width: inherit;
     height: 50px;
 }
+
+.MainPageBottom {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin: auto;
+}
+
+
+/* Содержимое страницы авторизации */
+
+.AuthoContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AuthoSpace{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.AuthoEditor{
+    margin: 10px;
+}
+
+
