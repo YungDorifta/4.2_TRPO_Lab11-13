@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ContosoSite.Models.Autopark>
+
+@{
+    ViewBag.Title = "Autopark";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.licensePlate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mileage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pricePerHour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModelTable.brand)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.licensePlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pricePerHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelTable.brand)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.autoID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.autoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.autoID })
+            </td>
+        </tr>
+    }
+
+</table>

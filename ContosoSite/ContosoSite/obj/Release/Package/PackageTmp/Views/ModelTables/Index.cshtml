@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ContosoSite.Models.ModelTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeTable.body)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+        <td>
+
+            @{ byte[] photo = item.photo;
+                string imageSrc = null;
+                if (photo != null)
+                {
+                    MemoryStream ms = new MemoryStream();
+                    ms.Write(photo, 0, photo.Length);
+                    string imageBase64 = Convert.ToBase64String(ms.ToArray());
+                    imageSrc = string.Format("data:image/jpg;base64,{0}", imageBase64);
+                    string base64String = Convert.ToBase64String(photo, 0, photo.Length);
+                }
+            }
+
+            <img src="@imageSrc" alt="Image" width="150" height="100" />
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeTable.body)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.modelID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.modelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.modelID })
+        </td>
+    </tr>
+}
+
+</table>

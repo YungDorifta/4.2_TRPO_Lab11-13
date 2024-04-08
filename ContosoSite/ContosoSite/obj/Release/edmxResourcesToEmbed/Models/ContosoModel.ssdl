@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище AutoRentDatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Autopark">
+    <Key>
+      <PropertyRef Name="autoID" />
+    </Key>
+    <Property Name="autoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modelID" Type="int" Nullable="false" />
+    <Property Name="licensePlate" Type="nchar" MaxLength="6" Nullable="false" />
+    <Property Name="mileage" Type="int" Nullable="false" />
+    <Property Name="pricePerHour" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fixes">
+    <Key>
+      <PropertyRef Name="fixID" />
+    </Key>
+    <Property Name="fixID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="autoID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nchar" MaxLength="150" Nullable="false" />
+    <Property Name="Appeared" Type="datetime" Nullable="false" />
+    <Property Name="Fixed" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModelTable">
+    <Key>
+      <PropertyRef Name="modelID" />
+    </Key>
+    <Property Name="modelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="model" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="typeID" Type="int" Nullable="false" />
+    <Property Name="photo" Type="image" />
+  </EntityType>
+  <EntityType Name="Options">
+    <Key>
+      <PropertyRef Name="optionsID" />
+    </Key>
+    <Property Name="optionsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trailer" Type="nchar" MaxLength="30" />
+    <Property Name="bicycleRack" Type="nchar" MaxLength="30" />
+    <Property Name="babySeat" Type="nchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Rents">
+    <Key>
+      <PropertyRef Name="rentID" />
+    </Key>
+    <Property Name="rentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="autoID" Type="int" Nullable="false" />
+    <Property Name="optionsID" Type="int" Nullable="false" />
+    <Property Name="startTime" Type="datetime" Nullable="false" />
+    <Property Name="endTime" Type="datetime" Nullable="false" />
+    <Property Name="insuranse" Type="nchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TechMessages">
+    <Key>
+      <PropertyRef Name="rentID" />
+    </Key>
+    <Property Name="rentID" Type="int" Nullable="false" />
+    <Property Name="start" Type="datetime" Nullable="false" />
+    <Property Name="description" Type="nchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeTable">
+    <Key>
+      <PropertyRef Name="typeID" />
+    </Key>
+    <Property Name="typeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="body" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="group" Type="nchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="role" Type="nchar" MaxLength="25" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="int" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="AutoFix">
+    <End Role="Autopark" Type="Self.Autopark" Multiplicity="1" />
+    <End Role="Fixes" Type="Self.Fixes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autopark">
+        <PropertyRef Name="autoID" />
+      </Principal>
+      <Dependent Role="Fixes">
+        <PropertyRef Name="autoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutoModel">
+    <End Role="ModelTable" Type="Self.ModelTable" Multiplicity="1" />
+    <End Role="Autopark" Type="Self.Autopark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModelTable">
+        <PropertyRef Name="modelID" />
+      </Principal>
+      <Dependent Role="Autopark">
+        <PropertyRef Name="modelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutoRent">
+    <End Role="Autopark" Type="Self.Autopark" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autopark">
+        <PropertyRef Name="autoID" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="autoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModelType">
+    <End Role="TypeTable" Type="Self.TypeTable" Multiplicity="1" />
+    <End Role="ModelTable" Type="Self.ModelTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTable">
+        <PropertyRef Name="typeID" />
+      </Principal>
+      <Dependent Role="ModelTable">
+        <PropertyRef Name="typeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentOptions">
+    <End Role="Options" Type="Self.Options" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Options">
+        <PropertyRef Name="optionsID" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="optionsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentTech">
+    <End Role="Rents" Type="Self.Rents" Multiplicity="1" />
+    <End Role="TechMessages" Type="Self.TechMessages" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rents">
+        <PropertyRef Name="rentID" />
+      </Principal>
+      <Dependent Role="TechMessages">
+        <PropertyRef Name="rentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RentUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Rents" Type="Self.Rents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Rents">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Insert_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="phone" Type="int" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="FIO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="LoginByEmailPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище AutoRentDatabaseModelContainer">
+    <EntitySet Name="Autopark" EntityType="Self.Autopark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fixes" EntityType="Self.Fixes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModelTable" EntityType="Self.ModelTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Options" EntityType="Self.Options" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rents" EntityType="Self.Rents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TechMessages" EntityType="Self.TechMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeTable" EntityType="Self.TypeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="AutoFix" Association="Self.AutoFix">
+      <End Role="Autopark" EntitySet="Autopark" />
+      <End Role="Fixes" EntitySet="Fixes" />
+    </AssociationSet>
+    <AssociationSet Name="AutoModel" Association="Self.AutoModel">
+      <End Role="ModelTable" EntitySet="ModelTable" />
+      <End Role="Autopark" EntitySet="Autopark" />
+    </AssociationSet>
+    <AssociationSet Name="AutoRent" Association="Self.AutoRent">
+      <End Role="Autopark" EntitySet="Autopark" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+    <AssociationSet Name="ModelType" Association="Self.ModelType">
+      <End Role="TypeTable" EntitySet="TypeTable" />
+      <End Role="ModelTable" EntitySet="ModelTable" />
+    </AssociationSet>
+    <AssociationSet Name="RentOptions" Association="Self.RentOptions">
+      <End Role="Options" EntitySet="Options" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+    <AssociationSet Name="RentTech" Association="Self.RentTech">
+      <End Role="Rents" EntitySet="Rents" />
+      <End Role="TechMessages" EntitySet="TechMessages" />
+    </AssociationSet>
+    <AssociationSet Name="RentUser" Association="Self.RentUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Rents" EntitySet="Rents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

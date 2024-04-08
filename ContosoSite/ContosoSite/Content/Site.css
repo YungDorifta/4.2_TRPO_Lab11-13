@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: darkslateblue;
+    background-color: antiquewhite;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,16 +26,6 @@ textarea {
 }
 
 /* Общее содержимое */
-
-.homebody {
-    /* 
-        background-image: url("../Images/HomeBG.bmp");
-        background-repeat: no-repeat;
-        background-size: cover;
-    */
-
-    background-color: lightblue;
-}
 
 .PageInfoPlace{
     display: flex;
@@ -60,6 +52,11 @@ textarea {
     background-color: grey;
     width: inherit;
     height: 50px;
+    
+}
+
+.MainPageActionSpace a {
+    color: white !important;
 }
 
 .MainPageBottom {
@@ -91,4 +88,5 @@ textarea {
     margin: 10px;
 }
 
+/* Содержимое страницы заказа */
 

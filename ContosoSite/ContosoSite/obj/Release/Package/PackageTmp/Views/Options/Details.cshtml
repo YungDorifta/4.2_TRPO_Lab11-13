@@ -1,0 +1,42 @@
+﻿@model ContosoSite.Models.Options
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Options</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bicycleRack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bicycleRack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.babySeat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.babySeat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.optionsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

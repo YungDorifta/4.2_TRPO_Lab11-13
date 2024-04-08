@@ -1,0 +1,74 @@
+﻿@model ContosoSite.Models.Rents
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробности</h2>
+
+<div>
+    <h4>Rents</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.startTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.insuranse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.insuranse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Autopark.licensePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autopark.licensePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Options.trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Options.trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechMessages.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechMessages.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.FIO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

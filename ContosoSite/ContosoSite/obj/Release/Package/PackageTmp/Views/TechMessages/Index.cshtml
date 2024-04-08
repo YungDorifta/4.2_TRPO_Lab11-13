@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ContosoSite.Models.TechMessages>
+
+@{
+    ViewBag.Title = "Tech messages";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rents.insuranse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rents.insuranse)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.rentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.rentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.rentID })
+        </td>
+    </tr>
+}
+
+</table>

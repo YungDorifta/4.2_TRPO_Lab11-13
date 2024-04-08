@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ContosoSite.Models.Fixes>
+
+@{
+    ViewBag.Title = "Fixes";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appeared)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fixed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autopark.licensePlate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appeared)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fixed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Autopark.licensePlate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fixID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fixID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fixID })
+        </td>
+    </tr>
+}
+
+</table>

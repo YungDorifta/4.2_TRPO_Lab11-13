@@ -153,7 +153,7 @@ namespace ContosoSite.Controllers
             }
             catch (Exception ex)
             {
-                // Info  
+                 // Info  
             }
             // If we got this far, something failed, redisplay form    
             return View(model);
@@ -214,7 +214,7 @@ namespace ContosoSite.Controllers
         }
 
         //Переход к локальной странице
-        private ActionResult RedirectToLocal(string returnUrl)
+        public ActionResult RedirectToLocal(string returnUrl)
         {
             try
             {

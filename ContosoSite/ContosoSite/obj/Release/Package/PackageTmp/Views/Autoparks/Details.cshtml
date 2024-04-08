@@ -1,0 +1,50 @@
+﻿@model ContosoSite.Models.Autopark
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Autopark</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.licensePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.licensePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mileage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mileage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pricePerHour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pricePerHour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModelTable.brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModelTable.brand)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.autoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
