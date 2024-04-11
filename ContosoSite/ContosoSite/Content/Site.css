@@ -1,15 +1,29 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
-    color: darkslateblue;
+    padding-bottom: 50px;
+    color: brown;
     background-color: antiquewhite;
+    width: 100vw;
+    height: 100vh;
+    font-family: fantasy;
 }
+
+.insidebody {
+    width: 80% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -18,12 +32,16 @@
     white-space: normal;
 }
 
+
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
+
+
 
 /* Общее содержимое */
 
@@ -39,42 +57,23 @@ textarea {
 }
 
 .Text {
-    color: darkslateblue;
+    color: brown;
     /* -webkit-text-stroke: 1px darkblue; Толщина и цвет обводки */
 }
 
 
-/* Главная страница */
-
-.MainPageActionSpace {
-    border: 3px solid grey;
-    border-radius: 15px;
-    background-color: grey;
-    width: inherit;
-    height: 50px;
-    
-}
-
-.MainPageActionSpace a {
-    color: white !important;
-}
-
-.MainPageBottom {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
-    margin: auto;
-}
-
 
 /* Содержимое страницы авторизации */
 
-.AuthoContent{
+.AuthoContent {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+}
+
+.AuthoGreeting {
+    text-shadow: 1px 1px 5px #ff6a00;
 }
 
 .AuthoSpace{
@@ -87,6 +86,39 @@ textarea {
 .AuthoEditor{
     margin: 10px;
 }
+
+.AuthorizationCar {
+    display: block;
+    width: 60%;
+    margin: auto;
+    object-fit: fill;
+    margin-left: -20px;
+}
+
+/* Главная страница */
+
+.MainPageActionSpace {
+    border: 3px solid grey;
+    border-radius: 15px;
+    background-color: grey;
+    width: inherit;
+    height: 50px;
+}
+
+.MainPageActionSpace a {
+        color: white !important;
+    }
+
+.MainPageBottom {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin: auto;
+}
+
+
 
 /* Содержимое страницы заказа */
 
