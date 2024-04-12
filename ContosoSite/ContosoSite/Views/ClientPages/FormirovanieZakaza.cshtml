@@ -1,5 +1,21 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ContosoSite.Models.AutoRentDatabaseEntitiesActual db = new ContosoSite.Models.AutoRentDatabaseEntitiesActual();
+    Boolean IsAdmin = false;
+    ViewBag.Role = "";
+    ViewBag.FIO = "";
+    if (@User.Identity.IsAuthenticated)
+    {
+        ContosoSite.Models.Users user = db.Users.Where(b => b.email == User.Identity.Name).FirstOrDefault();
+
+        if (user.role.Contains("Администратор"))
+        {
+            IsAdmin = true;
+        }
+        ViewBag.Role = user.role.ToString();
+        ViewBag.FIO = user.FIO.ToString();
+    }
 }
 
 <body class="homebody">
@@ -7,22 +23,35 @@
     <h1>Арендовать автомобиль</h1>
     <form>
         <div class="zakazdiv">
-        <p>ФИО арендатора:  @User.Identity.Name</p>
-        <p>(Место для вывода списка автомобилей)</p>
-        <p>(Место для вывода списка опций)</p>
-        <p>Начало аренды: <input type="datetime"/></p>
-        <p>Окончание аренды: <input type="datetime"/></p>
-        <p>Тариф страховки:<select>
-            <option>Отсутствует</option>
-            <option>Минимум</option>
-            <option>Средний</option>
-            <option>Максимум</option>
-        </select></p>
+            <p>ФИО арендатора:  @ViewBag.FIO</p>
+            <p>(Место для вывода списка автомобилей)</p>
+            <p>(Место для вывода списка опций)</p>
+            <p>Начало аренды: <input type="datetime" /></p>
+            <p>Окончание аренды: <input type="datetime" /></p>
+            <p>
+                Тариф страховки: <select>
+                    <option>Отсутствует</option>
+                    <option>Минимум</option>
+                    <option>Средний</option>
+                    <option>Максимум</option>
+                </select>
+            </p>
         </div>
 
         <h3>Сумма к оплате: @ViewBag.Summary</h3>
         <input type="submit" value="Сформировать заказ">
     </form>
+
+    <!-- Место для формирования word документа с арендой -->
+    <button id="WordBtn">Сформировать документ об аренде</button>
+    <script>
+        function MakeWord() {
+
+        }
+    </script>
+
+    <br><br>
+    <button onclick="document.location='../Home/Index'">На главную</button>
 
 </body>
 

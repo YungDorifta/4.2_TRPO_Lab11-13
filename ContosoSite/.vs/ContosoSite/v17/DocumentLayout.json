@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\College\\-TRPO\\_site\\ContosoSite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\views\\home\\authorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\views\\home\\authorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\views\\clientpages\\formirovaniezakaza.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\views\\clientpages\\formirovaniezakaza.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|d:\\college\\-trpo\\_site\\contososite\\contososite\\controllers\\clientpagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\controllers\\clientpagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|D:\\College\\-TRPO\\_site\\ContosoSite\\contososite\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DC4C4715-C3A7-4F92-93DC-B00248EEF326}|ContosoSite\\ContosoSite.csproj|solutionrelative:contososite\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,13 +30,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Site.css",
               "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Content\\Site.css",
               "RelativeDocumentMoniker": "ContosoSite\\Content\\Site.css",
               "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Content\\Site.css",
               "RelativeToolTip": "ContosoSite\\Content\\Site.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAARAAAA",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAAAIkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-04-11T20:26:00.247Z",
               "IsPinned": true,
@@ -49,54 +45,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Authorization.cshtml",
-              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Authorization.cshtml",
-              "RelativeDocumentMoniker": "ContosoSite\\Views\\Home\\Authorization.cshtml",
-              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Authorization.cshtml",
-              "RelativeToolTip": "ContosoSite\\Views\\Home\\Authorization.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAADYAAAA9AAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ContosoSite\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ContosoSite\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAB1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T20:30:05.716Z",
+              "WhenOpened": "2024-04-12T02:59:51.461Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormirovanieZakaza.cshtml",
+              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\ClientPages\\FormirovanieZakaza.cshtml",
+              "RelativeDocumentMoniker": "ContosoSite\\Views\\ClientPages\\FormirovanieZakaza.cshtml",
+              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\ClientPages\\FormirovanieZakaza.cshtml",
+              "RelativeToolTip": "ContosoSite\\Views\\ClientPages\\FormirovanieZakaza.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACwAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-12T02:40:21.149Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ContosoSite\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ContosoSite\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T21:39:51.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Registration.cshtml",
-              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Registration.cshtml",
-              "RelativeDocumentMoniker": "ContosoSite\\Views\\Home\\Registration.cshtml",
-              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Registration.cshtml",
-              "RelativeToolTip": "ContosoSite\\Views\\Home\\Registration.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T20:30:04.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "ContosoSite\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "ContosoSite\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T20:29:59.155Z",
+              "Title": "ClientPagesController.cs",
+              "DocumentMoniker": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Controllers\\ClientPagesController.cs",
+              "RelativeDocumentMoniker": "ContosoSite\\Controllers\\ClientPagesController.cs",
+              "ToolTip": "D:\\College\\-TRPO\\_site\\ContosoSite\\ContosoSite\\Controllers\\ClientPagesController.cs",
+              "RelativeToolTip": "ContosoSite\\Controllers\\ClientPagesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T03:03:21.304Z",
               "EditorCaption": ""
             }
           ]

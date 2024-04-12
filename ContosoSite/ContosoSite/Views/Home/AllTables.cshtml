@@ -1,6 +1,17 @@
 ﻿@model IEnumerable<ContosoSite.Models.Users>
 @{
     ViewBag.Title = "Page for authorized users";
+    ContosoSite.Models.AutoRentDatabaseEntitiesActual db = new ContosoSite.Models.AutoRentDatabaseEntitiesActual();
+    Boolean IsAdmin = false;
+    if (@User.Identity.IsAuthenticated)
+    {
+        ContosoSite.Models.Users user = db.Users.Where(b => b.email == User.Identity.Name).FirstOrDefault();
+
+        if (user.role.Contains("Администратор"))
+        {
+            IsAdmin = true;
+        }
+    }
 }
 
 
@@ -14,17 +25,29 @@
 </head>
 <body>
     <div>
-        <div>
-            <a href="../Users/Index">Пользователи</a><br>
-            <a href="../Options/Index">Наборы опций</a><br>
-            <a href="../TypeTables/Index">Типы автомобилей</a><br>
-            <a href="../Fixes/Index">Ремонт поломок</a><br>
-            <a href="../ModelTables/Index">Модели автомобилей</a><br>
-            <a href="../Autoparks/Index">Автопарк</a><br>
-            <a href="../Options/Index">Наборы опций</a><br>
-            <a href="../Rents/Index">Заказы</a><br>
-            <a href="../TechMessages/Index">Чаты тех. поддержки</a><br>
-        </div>
+        @if (IsAdmin)
+        {
+            <div>
+                <a href="../Users/Index">Пользователи</a><br>
+                <a href="../Options/Index">Наборы опций</a><br>
+                <a href="../TypeTables/Index">Типы автомобилей</a><br>
+                <a href="../Fixes/Index">Ремонт поломок</a><br>
+                <a href="../ModelTables/Index">Модели автомобилей</a><br>
+                <a href="../Autoparks/Index">Автопарк</a><br>
+                <a href="../Options/Index">Наборы опций</a><br>
+                <a href="../Rents/Index">Заказы</a><br>
+                <a href="../TechMessages/Index">Чаты тех. поддержки</a><br>
+                <br>
+                <button onclick="document.location='../Home/Index'">На главную</button>
+            </div>
+        }
+        else
+        {
+            <h1 style="text-align:center">Доступ к данным таблиц запрещен пользователям, не являющимся администраторами!</h1>
+            <div style="width: inherit;"><img src="~/Images/AccessDenied.jpg" style="display: block; width: 400px; object-fit: fill; margin: auto;" /></div>
+            <br>
+            <button onclick="document.location='../Home/Index'" style="display: block; margin: auto;">На главную</button>
+        }
     </div>
 </body>
 </html>

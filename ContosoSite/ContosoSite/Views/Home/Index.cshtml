@@ -1,73 +1,94 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Auto prokat";
+
+    ContosoSite.Models.AutoRentDatabaseEntitiesActual db = new ContosoSite.Models.AutoRentDatabaseEntitiesActual();
+    Boolean IsAdmin = false;
+    ViewBag.Role = "";
+    ViewBag.FIO = "";
+    if (@User.Identity.IsAuthenticated)
+    {
+        ContosoSite.Models.Users user = db.Users.Where(b => b.email == User.Identity.Name).FirstOrDefault();
+
+        if (user.role.Contains("Администратор"))
+        {
+            IsAdmin = true;
+        }
+        ViewBag.Role = user.role.ToString();
+        ViewBag.FIO = user.FIO.ToString();
+    }
 }
 
-<!-- Доделать функции для клиента: формирование заказа, калькуляция цены -->
-<!-- Доделать функции для админа: формирование в ворде отчета по поломкам -->
-<!-- Доделать функции для админа: формирование диаграммы по заказам (типы авто) -->
+<!-- Доделать функции для клиента: формирование заказа, калькуляция цены, word документ, просмотр автопарка и заказов -->
 
-<body class="homebody">
-    <div class="PageInfoPlace">
-        <div class="Greeting">
+<body>
+    <div id="FB" class="HomeMainFlex">
+        
+        <!-- Место для вывода информации о пользователе -->
+        @if (@User.Identity.IsAuthenticated)
+        {
+            <div class="HomeNavBar">
+                <div class="PageInfoPlace">
+                    <img src="../Images/defaultUser.jpg" style="border-radius: 50%; height: 70%; width: 70%;" />
+                    <br>
+                    <p style="text-align: center; font-size: 15px;" class="lead">Пользователь: @ViewBag.FIO (@ViewBag.Role)</p>
+                    <a href="../Home/LogOff" style="margin: auto; text-align: center;">>Выйти из аккаунта<</a>
+                </div>
+            </div>
+        }
+
+        <!-- Функционал приложения -->
+        <div class="HomeFunctionality">
+
             @if (@User.Identity.IsAuthenticated)
             {
-                <h1>Приветствуем на сайте проката автомобилей!</h1>
-                <p class="lead">Выполнен вход с аккаунта: @User.Identity.Name</p>
+                <h2 style="text-align: center;">Приветствуем на сайте проката автомобилей!</h2>
+                <br>
+                if (ViewBag.Role.Contains("Клиент"))
+                {
+                    <!-- Функционал для авторизованного клиента -->
+                    <div class="HomeBasicFunctions">
+
+                        <button onclick="document.location='../ClientPages/FormirovanieZakaza'" id="FormirBtn" class="HomeFunction">
+                            <p>Арендовать авто</p>
+                            <img src="~/Images/keys.png" style="height: 80%; object-fit: fill;" />
+                        </button>
+
+                        <button onclick="document.location='../ClientPages/ProsmotrZakazov'" class="HomeFunction">
+                            <p>Просмотреть доступные авто</p>
+                            <img src="~/Images/car2.png" style="height: 80%; object-fit: fill;" />
+                        </button>
+
+                        <button onclick="document.location='../ClientPages/ProsmotrAvto'" class="HomeFunction">
+                            <p>Посмотреть мои заказы</p>
+                            <img src="~/Images/doc.png" style="height: 80%; object-fit: fill;" />
+                        </button>
+                    </div>
+
+                }
+                else if (IsAdmin)
+                {
+                    <!-- Функционал для авторизованного админа -->
+                    <div class="HomeBasicFunctions">
+                        <button onclick="document.location='../Home/AllTables'" class="HomeFunction" style="width: 100%; margin: 40px;">
+                            <p>Перейти к действиям с таблицами</p>
+                            <img src="~/Images/tables.png" style="height: 120%; object-fit: fill;" />
+                        </button>
+                    </div>
+                }
             }
             else
             {
-                <h1>Приветствуем!</h1>
-                <p>Войдите в аккаунт или зарегестрируйтесь</p>
+                <!-- Для неавторизованных пользователей-->
+                <h1 style="text-align: center;">Для разблокировки полного функционала войдите в аккаунт 😊</h1>
+                <br><br>
+                <div style="display: flex; justify-content: space-around;">
+                    <a href="../Home/Registration" style="margin: auto; text-align: center; font-size: 20px;">>Зарегестрироваться<</a>
+                    <a href="../Home/Authorization" style="margin: auto; text-align: center; font-size: 20px;">>Войти в аккаунт<</a>
+                </div>
+                <div style="width: 80%; padding: 10%; margin: auto;">
+                    <img src="../Images/gifcar.gif" style="width: 100%; object-fit: fill; border-radius: 40px; margin: auto;" />
+                </div>
             }
         </div>
-    </div>
-
-    <!-- Функционал для авторизованного клиента -->
-    @if (@User.Identity.IsAuthenticated)
-    {
-        <div class="MainPageActionSpace">
-            <a class="ssylkabutton" href="../ClientPages/FormirovanieZakaza">Арендовать автомобиль</a>
-        </div>
-        <br><br>
-        <div class="MainPageActionSpace">
-            <a class="ssylkabutton" href="../ClientPages/ProsmotrAvto">Просмотреть доступные автомобили</a>
-        </div>
-        <br><br>
-        <div class="MainPageActionSpace">
-            <a class="ssylkabutton" href="../ClientPages/ProsmotrZakazov">Перейти к моим заказам</a>
-        </div>
-        <br><br>
-    }
-
-    <!-- Функционал для авторизованного админа -->
-    @if (@User.Identity.IsAuthenticated)
-    {
-        <div style="display: flex; align-items: center">
-            <a href="../Home/AllTables" style="display: block; margin: auto;">Все таблицы</a>
-        </div>
-        <br>
-    }
-
-    <!-- Функционал для авторизованного сотрудника техподдержки -->
-    <div>
-
-    </div>
-
-    <!-- Функционал для авторизованного механика -->
-    <div>
-
-    </div>
-
-    <div class="MainPageBottom">
-        @if (@User.Identity.IsAuthenticated)
-        {
-            <a href="../Home/LogOff" style="margin: auto;">Выйти из аккаунта</a>
-        }
-        else
-        {
-            <a href="../Home/Registration" style="display: block;">Заргестрироваться</a>
-            <div style="width: 10px;"></div>
-            <a href="../Home/Authorization">Войти в аккаунт</a>
-        }
     </div>
 </body>

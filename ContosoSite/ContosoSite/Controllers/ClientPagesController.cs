@@ -13,6 +13,8 @@ namespace ContosoSite.Controllers
             return View();
         }
         
+        
+
         public ActionResult ProsmotrAvto()
         {
             return View();

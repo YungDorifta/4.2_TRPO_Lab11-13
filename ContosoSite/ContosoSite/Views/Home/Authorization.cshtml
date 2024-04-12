@@ -36,12 +36,10 @@
                     </div>
 
                     <div class="AuthoEditor">
-                        <p class="Text">Пароль: </p>
-                        @Html.EditorFor(model => model.password, "Пароль: ", new { htmlAttributes = new { @class = "form-control", type = "password", id="password-input" } })
+                        <p class="Text">Пароль: <input type="checkbox" id="CBid" class="password-checkbox"><label style="margin-bottom: 0px;">👀</label></p>
+                        @Html.EditorFor(model => model.password, "Пароль: ", new { htmlAttributes = new { @class = "form-control", type = "password", id = "password-input" } })
                         @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                     </div>
-
-                    <label><input type="checkbox" id="CBid" class="password-checkbox"> Показать пароль</label>
 
                     <script>
                         const CB = document.getElementById('CBid');
@@ -53,15 +51,14 @@
                             }
                         }
                         CB.addEventListener('click', CBfunc);
-                        
+
                     </script>
                 </div>
 
                 <br>
 
-
                 <div class="AuthoSpace">
-                    <input type="submit" style="width: 20%;" value="Войти" />
+                    <input type="submit" style="margin-top: 10px; width: 20%;" value="Войти" />
                 </div>
 
                 <br>

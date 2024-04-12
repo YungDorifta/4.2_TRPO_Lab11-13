@@ -16,6 +16,9 @@
     margin: auto;
 }
 
+a{
+    color: brown;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -73,7 +76,7 @@ textarea {
 }
 
 .AuthoGreeting {
-    text-shadow: 1px 1px 5px #ff6a00;
+    /*text-shadow: 1px 1px 5px #ff6a00;*/
 }
 
 .AuthoSpace{
@@ -95,29 +98,51 @@ textarea {
     margin-left: -20px;
 }
 
+
+
 /* Главная страница */
 
-.MainPageActionSpace {
-    border: 3px solid grey;
-    border-radius: 15px;
-    background-color: grey;
-    width: inherit;
-    height: 50px;
-}
-
-.MainPageActionSpace a {
-        color: white !important;
-    }
-
-.MainPageBottom {
+.HomeMainFlex {
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
+    width: inherit;
+    height: 80vh;
     margin: auto;
 }
 
+.HomeNavBar{
+    height: inherit;
+    width: 20vw;
+    background-color: brown;
+    color: white;
+    border-radius: 40px;
+    padding: 40px;
+    
+}
+
+.HomeNavBar a{
+    color: white !important;
+}
+
+.HomeFunctionality{
+    width: 60vw;
+    height: inherit;
+    padding: 40px 0px;
+    margin: auto;
+}
+
+.HomeBasicFunctions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.HomeFunction{
+    height: 30vh;
+    padding: 40px;
+    background-color: darkslategrey;
+    border-radius: 40px;
+    color: white;
+    margin: 10px;
+}
 
 
 /* Содержимое страницы заказа */
